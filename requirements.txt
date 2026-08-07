@@ -1,0 +1,4 @@
+torch>=2.2
+transformers>=4.45
+openpyxl>=3.1
+tqdm>=4.66

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cag-kanana"
+version = "0.1.0"
+description = "Reusable Cache-Augmented Generation utilities for Llama-family models and custom knowledge bases"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.2",
+    "transformers>=4.45,<5",
+    "openpyxl>=3.1",
+    "tqdm>=4.66",
+]
+keywords = ["cag", "cache-augmented-generation", "llama", "kanana", "kv-cache", "rag"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2412.15605"
+Upstream = "https://github.com/hhhuang/CAG"
+
+[project.scripts]
+cag-build-corpus = "cag_kanana.cli:build_corpus_cli"
+cag-build-cache = "cag_kanana.cli:build_cache_cli"
+cag-query = "cag_kanana.cli:query_cli"
+
+[tool.setuptools]
+packages = ["cag_kanana", "src"]
+py-modules = ["config"]

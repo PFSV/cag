@@ -1,0 +1,29 @@
+# Generated artifacts
+data/knowledge_corpus.txt
+data/cache/
+data/results/
+*.pt
+
+# Private/internal source material. Keep only data/raw/sample.txt in Git.
+RAG_DATA_*/
+data/raw/*
+!data/raw/sample.txt
+
+# Local runtime files
+__pycache__/
+*.py[cod]
+.venv/
+*.log
+log/
+
+# Legacy layout retained locally for migration/comparison
+batch/
+build_kvcache_kanana.py
+prepare_knowledge.py
+query_kanana.py
+knowledge_corpus.txt
+
+# Build products
+dist/
+build/
+*.egg-info/

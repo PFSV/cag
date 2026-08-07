@@ -1,0 +1,4 @@
+# Public sample document
+
+The sample device filter should be replaced according to the maintenance guide.
+This file exists only to make the corpus-building pipeline runnable without private documents.
