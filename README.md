@@ -30,21 +30,21 @@ After installation from a checkout, the same workflow is available globally:
 
 ```bash
 pip install .
-cag-build-corpus
-cag-build-cache
-cag-query --question "What should be replaced according to the guide?"
+pycag-build-corpus
+pycag-build-cache
+pycag-query --question "What should be replaced according to the guide?"
 ```
 
-The intended release is `pip install cag-kanana`. The package name is configured in this project but has not been uploaded to PyPI. To publish it, create the project/repository under your accounts, configure PyPI Trusted Publishing for the `publish.yml` workflow, create a GitHub release, and let the workflow upload the wheel. For a one-off local release, use `python -m build` followed by `python -m twine upload dist/*` with a PyPI token.
+The intended release is `pip install pycag`. The package name is configured in this project but has not been uploaded to PyPI. To publish it, configure PyPI Trusted Publishing for the `publish.yml` workflow, create a GitHub release, and let the workflow upload the wheel. For a one-off local release, use `python -m build` followed by `python -m twine upload dist/*` with a PyPI token.
 
 ## Bring your own data
 
 The CAG engine does not depend on a particular dataset. Place text-like files under a data directory and run:
 
 ```bash
-cag-build-corpus --data-root ./my-data --output ./data/knowledge_corpus.txt
-cag-build-cache --corpus ./data/knowledge_corpus.txt --model meta-llama/Llama-3.1-8B-Instruct
-cag-query --cache ./data/cache/kanana_kvcache.pt --question "Ask about my data"
+pycag-build-corpus --data-root ./my-data --output ./data/knowledge_corpus.txt
+pycag-build-cache --corpus ./data/knowledge_corpus.txt --model meta-llama/Llama-3.1-8B-Instruct
+pycag-query --cache ./data/cache/llama_kvcache.pt --question "Ask about my data"
 ```
 
 For PDFs, database rows, web pages, or other binary/API sources, add an application-specific extraction step that converts records into UTF-8 text before corpus building. This keeps the cache engine independent of any one ingestion technology.

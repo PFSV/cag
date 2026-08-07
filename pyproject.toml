@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cag-kanana"
+name = "pycag"
 version = "0.1.0"
 description = "Reusable Cache-Augmented Generation utilities for Llama-family models and custom knowledge bases"
 readme = "README.md"
@@ -26,6 +26,7 @@ classifiers = [
 ]
 
 [project.urls]
+Repository = "https://github.com/PFSV/cag"
 Paper = "https://arxiv.org/abs/2412.15605"
 Upstream = "https://github.com/hhhuang/CAG"
 
@@ -33,7 +34,10 @@ Upstream = "https://github.com/hhhuang/CAG"
 cag-build-corpus = "cag_kanana.cli:build_corpus_cli"
 cag-build-cache = "cag_kanana.cli:build_cache_cli"
 cag-query = "cag_kanana.cli:query_cli"
+pycag-build-corpus = "pycag.cli:build_corpus_cli"
+pycag-build-cache = "pycag.cli:build_cache_cli"
+pycag-query = "pycag.cli:query_cli"
 
 [tool.setuptools]
-packages = ["cag_kanana", "src"]
+packages = ["pycag", "cag_kanana", "src"]
 py-modules = ["config"]
