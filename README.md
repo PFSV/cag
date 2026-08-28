@@ -46,6 +46,13 @@ pycag-build-cache
 pycag-query --question "What should be replaced according to the guide?"
 ```
 
+Run the lightweight, model-free verification before downloading a checkpoint:
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/01_build_corpus.py --output /tmp/pycag-corpus.txt
+```
+
 ## Bring your own data
 
 The CAG engine does not depend on a particular dataset. Place text-like files under a data directory and run:
