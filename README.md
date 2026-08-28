@@ -1,4 +1,7 @@
-# CAG for Llama-family Models
+# pycag — Cache-Augmented Generation for Llama-family Models
+
+[![PyPI](https://img.shields.io/pypi/v/pycag)](https://pypi.org/project/pycag/)
+[![CI](https://github.com/PFSV/cag/actions/workflows/ci.yml/badge.svg)](https://github.com/PFSV/cag/actions/workflows/ci.yml)
 
 Reusable **Cache-Augmented Generation (CAG)** implementation for pre-filling any compatible Llama-family causal language model with a manageable knowledge base and serving queries without per-query vector retrieval. Kanana is one supported model instance, not the architectural limit.
 
@@ -14,6 +17,15 @@ documents -> corpus consolidation -> KV-cache pre-building (.pt) -> query execut
 2. `02_build_cache.py` loads the selected causal LM, pre-fills it with the corpus, and saves the resulting cache.
 3. `03_run_query.py` appends a question to that cached prefix. It supports one question or a line-oriented batch that writes JSONL incrementally.
 
+## Install
+
+```bash
+pip install pycag
+```
+
+`pycag` is an alpha research utility. It downloads and runs user-selected language models;
+hardware and memory requirements depend on the model and corpus size.
+
 ## Quick start
 
 ```bash
@@ -26,16 +38,13 @@ python scripts/03_run_query.py --question "What should be replaced according to 
 python scripts/03_run_query.py --questions questions.txt --output data/results/answers.jsonl
 ```
 
-After installation from a checkout, the same workflow is available globally:
+The package exposes the same workflow as command-line tools:
 
 ```bash
-pip install .
 pycag-build-corpus
 pycag-build-cache
 pycag-query --question "What should be replaced according to the guide?"
 ```
-
-The intended release is `pip install pycag`. The package name is configured in this project but has not been uploaded to PyPI. To publish it, configure PyPI Trusted Publishing for the `publish.yml` workflow, create a GitHub release, and let the workflow upload the wheel. For a one-off local release, use `python -m build` followed by `python -m twine upload dist/*` with a PyPI token.
 
 ## Bring your own data
 
